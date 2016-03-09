@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>  /* for clrscr */
+//#include <conio.h>  /* for clrscr */
 #include <string.h>
 
 
@@ -35,15 +35,15 @@ const void updateBalance(int sender, int receiver, double amount, double Account
     
     if(sender > 0 && receiver > 0 && amount > 0 && sender < lenghtArray && receiver < lenghtArray) //checks a couple of conditions
     {
-        if(AccountBalance[receiver] == NULL)
-        {
-            AccountBalance[receiver] = 0;
-        }
-        
-        if(AccountBalance[sender] == NULL)
-        {
-            AccountBalance[sender] = 0;
-        }
+//        if(AccountBalance[receiver] == NULL)
+//        {
+//            AccountBalance[receiver] = 0;
+//        }
+//        
+//        if(AccountBalance[sender] == NULL)
+//        {
+//            AccountBalance[sender] = 0;
+//        }
         
         AccountBalance[receiver] = AccountBalance[receiver] + amount;
         AccountBalance[sender] = AccountBalance[sender] - amount;
@@ -57,7 +57,7 @@ main() {
     double AccountBalance[100];
 
 
-    fp = fopen("c:\\accountReaderMap\\transactions.txt", "r"); /* open the file for reading */
+    fp = fopen("e:\\transactions.txt", "r"); /* open the file for reading */
     /* elapsed.dta is the name of the file */
     /* "rt" means open the file for reading text */
 
@@ -66,7 +66,7 @@ main() {
         char* tmp = strdup(line);    
         //char *record = strtok(line, ",");
         //printf(record);
-        //printf("Field 1 would be %s\n", getfield(tmp, 3));
+        printf("Field 1 would be %s\n", getfield(tmp, 3));
         
         int* sender = (int) *getfield(tmp, 1);
         int* receiver = (int) *getfield(tmp, 2);
